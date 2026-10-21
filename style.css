@@ -5,3 +5,21 @@
 @keyframes gradientDrift{0%{background-position:0% 45%;transform:scale(1)}50%{background-position:100% 55%;transform:scale(1.06)}100%{background-position:35% 100%;transform:scale(1.02)}}
 @keyframes textGradient{0%{background-position:0% 50%}100%{background-position:100% 50%}}
 @media(prefers-reduced-motion:reduce){.hero:before,.hero h1 span{animation:none!important}}
+
+/* Liquid glass controls: translucent, layered, tactile */
+:root{--mouse-x:50%;--mouse-y:45%}
+.hero:before{background:radial-gradient(ellipse at var(--mouse-x,50%) var(--mouse-y,45%),#5145d8 0%,#29216f 22%,#12102f 48%,#07070d 73%);background-size:100% 100%;animation:none;transition:background-position .12s ease-out}
+.btn,.nav-cta{position:relative;isolation:isolate;overflow:hidden;border:1px solid #ffffff42;border-radius:999px;background:linear-gradient(135deg,#ffffff35,#ffffff0a 48%,#ffffff16);backdrop-filter:blur(22px) saturate(180%);-webkit-backdrop-filter:blur(22px) saturate(180%);box-shadow:inset 0 1px 0 #ffffff75,inset 0 -1px 0 #ffffff12,0 8px 26px #0003;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.btn:before,.nav-cta:before{content:"";position:absolute;inset:1px;border-radius:inherit;background:linear-gradient(120deg,#ffffff2b,transparent 42%,#ffffff0b);z-index:-1;pointer-events:none}
+.btn:hover,.nav-cta:hover{transform:translateY(-2px);border-color:#ffffff85;box-shadow:inset 0 1px 0 #ffffffa8,0 12px 32px #3d44ff30}
+.btn.primary{background:linear-gradient(135deg,#8e91ff9c,#5967ff48 50%,#48bfff35);box-shadow:inset 0 1px 0 #ffffff8c,0 8px 28px #4145ff38}
+.btn.secondary{background:#ffffff12}
+.nav-cta{padding:9px 15px;color:#fff}
+.ico{border-radius:13px;background:linear-gradient(145deg,#ffffff20,#6b6cff12);backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 #ffffff55,0 5px 16px #0002;position:relative}
+.ico:after{content:"";position:absolute;inset:4px;border:1px solid #ffffff12;border-radius:9px;pointer-events:none}
+.java,.db,.code{font-size:0}
+.java:before{content:"J";font:700 19px var(--font);background:linear-gradient(160deg,#fff,#ffb17f);background-clip:text;color:transparent}
+.db:before{content:"◈";font:700 22px var(--font);color:#9dd7ff}
+.code:before{content:"⌘";font:700 21px var(--font);color:#d0b5ff}
+@media (hover:none){.hero:before{background:radial-gradient(ellipse at 50% 45%,#3025a8,#17134e 30%,#09091b 57%,#07070d 72%)}}
+@media(prefers-reduced-motion:reduce){.hero:before{transition:none}}
